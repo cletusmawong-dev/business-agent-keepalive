@@ -20,7 +20,7 @@ jobs:
         run: |
           for i in 1 2 3; do
             code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 100 \
-              https://business-agent-u9e6.onrender.com/health || true)
+              https://business-agent-u9e6.onrender.com/health/ready || true)
             echo "attempt $i -> HTTP $code"
             if [ "$code" = "200" ]; then exit 0; fi
             sleep 25
